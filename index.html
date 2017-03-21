@@ -1,0 +1,1489 @@
+﻿<html>
+
+<head>
+    <title>Aqours Birthday Countdown...</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:600" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <style type="text/css">
+        @media all {
+            .tmblr-iframe {
+                display: none;
+            }
+            .circleBorder {
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+            }
+            body {
+                background-color: #000;
+                font-family: 'Montserrat', sans-serif;
+                margin: 0;
+            }
+            a {
+                color: #ffffff;
+                font-size: 8pt;
+                text-decoration: none;
+            }
+            .bday-greeting {
+                position: absolute;
+                margin: 5pt;
+                bottom: 0;
+                right: 0;
+                z-index: 20;
+                text-align: center;
+            }
+            #title-container {
+                width: 96%;
+                margin: 0% 2%;
+                height: 100pt;
+                background-color: #ff4988;
+                border-bottom: 5px solid #ffffff;
+                position: relative;
+            }
+            #members-container {
+                width: 96%;
+                color: #fff;
+                margin: 0% 2%;
+            }
+            #members-container:after {
+                content: " ";
+                display: block;
+                height: 0;
+                clear: both;
+                overflow: hidden;
+                visibility: hidden;
+            }
+            .member {
+                position: relative;
+                width: 32%;
+                height: 110pt;
+                margin: 10px 0px;
+                float: left;
+                overflow: hidden;
+                border-bottom: 5px solid #ffffff;
+            }
+            .member .member-column {
+                float: left;
+                z-index: 3;
+            }
+            .name-container {
+                position: relative;
+                width: 100%;
+                height: 50pt;
+                margin-top: 5pt;
+                text-align: center;
+            }
+            .name-container {
+                display: inline-block;
+            }
+            .birthday-container {
+                position: relative;
+                margin: 5pt;
+                height: 50pt;
+            }
+            .unit-container {
+                text-align: center;
+                float: left;
+                width: 20%;
+            }
+            .unit-container .number {
+                font-size: 15pt;
+            }
+            .unit-container .unit {
+                font-size: 7pt;
+            }
+            .pics-container {
+                position: relative;
+                overflow: none;
+                width: 40%;
+                height: 110pt;
+            }
+            .pics-container .pic,
+            .pics-container .arc {
+                position: absolute;
+                margin: auto;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+            }
+            .pics-container .pic {
+                width: 90pt;
+                height: 90pt;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .pics-container .arc {
+                width: 93pt;
+                height: 93pt;
+                border: 5px solid transparent;
+                border-top: 5px solid #fff;
+                -webkit-animation: spin 3s linear infinite;
+                -moz-animation: spin 3s linear infinite;
+                -o-animation: spin 3s linear infinite;
+                -ms-animation: spin 3s linear infinite;
+                animation: spin 3s linear infinite;
+            }
+            .details {
+                width: 60%;
+            }
+            .details .name {
+                font-size: 12pt;
+            }
+            .details .birthday {
+                font-size: 9pt;
+            }
+            #llss {
+                display: none;
+                background-color: #ff4988;
+            }
+            #llss .title-text {
+                line-height: 13pt;
+            }
+            #llss .twitter {
+                text-transform: none;
+            }
+            .twitter a {
+                font-size: 7pt;
+                display: block;
+                color: #ffffff;
+                text-decoration: none;
+            }
+            .twitter a:hover {
+                color: #1dcaff;
+            }
+            .chibi {
+                position: absolute;
+                background-size: cover;
+                width: 75px;
+                height: 75px;
+                left: 0;
+                bottom: 0;
+                z-index: 300;
+            }
+            .member:hover .chibi {
+                -webkit-animation: chibibounce 3s infinite;
+                -moz-animation: chibibounce 3s infinite;
+                -o-animation: chibibounce 3s infinite;
+                -ms-animation: chibibounce 3s infinite;
+                animation: chibibounce 3s infinite;
+            }
+            #title {
+                position: absolute;
+                height: 100pt;
+                width: 50%;
+                margin: auto;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+            }
+            .logo {
+                position: relative;
+                height: 75pt;
+                margin: 0 auto;
+            }
+            .logo img {
+                position: absolute;
+                height: 50pt;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                margin: auto;
+            }
+            .title-text {
+                height: 25pt;
+                line-height: 25pt;
+                text-align: center;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                margin: 0 auto;
+                font-size: 10pt;
+                text-transform: uppercase;
+                color: #ffffff;
+                z-index: 2;
+            }
+            .title-background {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                right: 0;
+                bottom: 0;
+                background-image: url('assets/general/aqours_cover.jpg');
+                background-position: right bottom;
+                background-repeat: no-repeat;
+            }
+            .watermark {
+                text-align: right;
+                position: absolute;
+                margin: 5pt;
+                color: #fff;
+                font-size: 10pt;
+                top: 0;
+                right: 0;
+                z-index: 20;
+                text-transform: none;
+            }
+            .watermark .twitter a {
+                color: #fff;
+            }
+            #anchan {
+                background-color: #ff944b;
+            }
+            #anchan .pic {
+                background-image: url("assets/images/anchan.jpg");
+            }
+            #anchan .chibi {
+                background-image: url("assets/chibis/anchan_chibi.png");
+            }
+            #rikyako {
+                background-color: #ff8888;
+            }
+            #rikyako .pic {
+                background-image: url("assets/images/rikyako.jpg");
+            }
+            #rikyako .chibi {
+                background-image: url("assets/chibis/rikyako_chibi.png");
+            }
+            #suwawa {
+                background-color: #4ccbad;
+            }
+            #suwawa .pic {
+                background-image: url("assets/images/suwawa.jpg");
+            }
+            #suwawa .chibi {
+                background-image: url("assets/chibis/suwawa_chibi.png");
+            }
+            #arisha {
+                background-color: #e85c5c;
+            }
+            #arisha .pic {
+                background-image: url("assets/images/arisha.jpg");
+            }
+            #arisha .chibi {
+                background-image: url("assets/chibis/arisha_chibi.png");
+            }
+            #shukashuu {
+                background-color: #4cb1dc;
+            }
+            #shukashuu .pic {
+                background-image: url("assets/images/shukashuu.jpg");
+            }
+            #shukashuu .chibi {
+                background-image: url("assets/chibis/shukashuu_chibi.png");
+            }
+            #aikyan {
+                background-color: #adadad;
+            }
+            #aikyan .pic {
+                background-image: url("assets/images/aikyan.jpg");
+            }
+            #aikyan .chibi {
+                background-image: url("assets/chibis/aikyan_chibi.png");
+            }
+            #king {
+                background-color: #cfbc21;
+            }
+            #king .pic {
+                background-image: url("assets/images/king.jpg");
+            }
+            #king .chibi {
+                background-image: url("assets/chibis/king_chibi.png");
+            }
+            #ainyan {
+                background-color: #aa48db;
+            }
+            #ainyan .pic {
+                background-image: url("assets/images/ainyan.jpg");
+            }
+            #ainyan .chibi {
+                background-image: url("assets/chibis/ainyan_chibi.png");
+            }
+            #furirin {
+                background-color: #e371ba;
+            }
+            #furirin .pic {
+                background-image: url("assets/images/furirin.jpg");
+            }
+            #furirin .chibi {
+                background-image: url("assets/chibis/furirin_chibi.png");
+            }
+            @keyframes chibibounce {
+                0% {
+                    left: 0;
+                    bottom: 0;
+                }
+                10% {
+                    left: 0;
+                    -webkit-transform: rotate(15deg);
+                    -moz-transform: rotate(15deg);
+                    -o-transform: rotate(15deg);
+                    -ms-transform: rotate(15deg);
+                    transform: rotate(15deg);
+                }
+                15% {
+                    left: 0;
+                    bottom: 20%;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                25% {
+                    left: 0;
+                    bottom: 0;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                30% {
+                    left: 20%;
+                    bottom: 25%;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                35% {
+                    left: 40%;
+                    bottom: 0;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                45% {
+                    left: 40%;
+                    bottom: 0;
+                    -webkit-transform: rotate(15deg);
+                    -moz-transform: rotate(15deg);
+                    -o-transform: rotate(15deg);
+                    -ms-transform: rotate(15deg);
+                    transform: rotate(15deg);
+                }
+                55% {
+                    left: 40%;
+                    bottom: 0;
+                    -webkit-transform: rotate(-15deg);
+                    -moz-transform: rotate(-15deg);
+                    -o-transform: rotate(-15deg);
+                    -ms-transform: rotate(-15deg);
+                    transform: rotate(-15deg);
+                }
+                60% {
+                    left: 40%;
+                    bottom: 0;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                65% {
+                    left: 55%;
+                    bottom: 20%;
+                }
+                70% {
+                    left: 70%;
+                    bottom: 0;
+                }
+                75% {
+                    left: 50%;
+                    bottom: 10%;
+                }
+                80% {
+                    left: 20%;
+                    bottom: 0;
+                }
+                85% {
+                    left: 10%;
+                    bottom: 20%;
+                }
+                90% {
+                    left: 0;
+                    bottom: 0;
+                }
+                95% {
+                    left: 0;
+                    bottom: 15%;
+                }
+                100% {
+                    left: 0;
+                    bottom: 0%;
+                }
+            }
+            @-webkit-keyframes chibibounce {
+                0% {
+                    left: 0;
+                    bottom: 0;
+                }
+                10% {
+                    left: 0;
+                    -webkit-transform: rotate(15deg);
+                    -moz-transform: rotate(15deg);
+                    -o-transform: rotate(15deg);
+                    -ms-transform: rotate(15deg);
+                    transform: rotate(15deg);
+                }
+                15% {
+                    left: 0;
+                    bottom: 20%;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                25% {
+                    left: 0;
+                    bottom: 0;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                30% {
+                    left: 20%;
+                    bottom: 25%;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                35% {
+                    left: 40%;
+                    bottom: 0;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                45% {
+                    left: 40%;
+                    bottom: 0;
+                    -webkit-transform: rotate(15deg);
+                    -moz-transform: rotate(15deg);
+                    -o-transform: rotate(15deg);
+                    -ms-transform: rotate(15deg);
+                    transform: rotate(15deg);
+                }
+                55% {
+                    left: 40%;
+                    bottom: 0;
+                    -webkit-transform: rotate(-15deg);
+                    -moz-transform: rotate(-15deg);
+                    -o-transform: rotate(-15deg);
+                    -ms-transform: rotate(-15deg);
+                    transform: rotate(-15deg);
+                }
+                60% {
+                    left: 40%;
+                    bottom: 0;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                65% {
+                    left: 55%;
+                    bottom: 20%;
+                }
+                70% {
+                    left: 70%;
+                    bottom: 0;
+                }
+                75% {
+                    left: 50%;
+                    bottom: 10%;
+                }
+                80% {
+                    left: 20%;
+                    bottom: 0;
+                }
+                85% {
+                    left: 10%;
+                    bottom: 20%;
+                }
+                90% {
+                    left: 0;
+                    bottom: 0;
+                }
+                95% {
+                    left: 0;
+                    bottom: 15%;
+                }
+                100% {
+                    left: 0;
+                    bottom: 0%;
+                }
+            }
+            @-o-keyframes chibibounce {
+                0% {
+                    left: 0;
+                    bottom: 0;
+                }
+                10% {
+                    left: 0;
+                    -webkit-transform: rotate(15deg);
+                    -moz-transform: rotate(15deg);
+                    -o-transform: rotate(15deg);
+                    -ms-transform: rotate(15deg);
+                    transform: rotate(15deg);
+                }
+                15% {
+                    left: 0;
+                    bottom: 20%;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                25% {
+                    left: 0;
+                    bottom: 0;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                30% {
+                    left: 20%;
+                    bottom: 25%;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                35% {
+                    left: 40%;
+                    bottom: 0;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                45% {
+                    left: 40%;
+                    bottom: 0;
+                    -webkit-transform: rotate(15deg);
+                    -moz-transform: rotate(15deg);
+                    -o-transform: rotate(15deg);
+                    -ms-transform: rotate(15deg);
+                    transform: rotate(15deg);
+                }
+                55% {
+                    left: 40%;
+                    bottom: 0;
+                    -webkit-transform: rotate(-15deg);
+                    -moz-transform: rotate(-15deg);
+                    -o-transform: rotate(-15deg);
+                    -ms-transform: rotate(-15deg);
+                    transform: rotate(-15deg);
+                }
+                60% {
+                    left: 40%;
+                    bottom: 0;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                65% {
+                    left: 55%;
+                    bottom: 20%;
+                }
+                70% {
+                    left: 70%;
+                    bottom: 0;
+                }
+                75% {
+                    left: 50%;
+                    bottom: 10%;
+                }
+                80% {
+                    left: 20%;
+                    bottom: 0;
+                }
+                85% {
+                    left: 10%;
+                    bottom: 20%;
+                }
+                90% {
+                    left: 0;
+                    bottom: 0;
+                }
+                95% {
+                    left: 0;
+                    bottom: 15%;
+                }
+                100% {
+                    left: 0;
+                    bottom: 0%;
+                }
+            }
+            @-ms-keyframes chibibounce {
+                0% {
+                    left: 0;
+                    bottom: 0;
+                }
+                10% {
+                    left: 0;
+                    -webkit-transform: rotate(15deg);
+                    -moz-transform: rotate(15deg);
+                    -o-transform: rotate(15deg);
+                    -ms-transform: rotate(15deg);
+                    transform: rotate(15deg);
+                }
+                15% {
+                    left: 0;
+                    bottom: 20%;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                25% {
+                    left: 0;
+                    bottom: 0;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                30% {
+                    left: 20%;
+                    bottom: 25%;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                35% {
+                    left: 40%;
+                    bottom: 0;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                45% {
+                    left: 40%;
+                    bottom: 0;
+                    -webkit-transform: rotate(15deg);
+                    -moz-transform: rotate(15deg);
+                    -o-transform: rotate(15deg);
+                    -ms-transform: rotate(15deg);
+                    transform: rotate(15deg);
+                }
+                55% {
+                    left: 40%;
+                    bottom: 0;
+                    -webkit-transform: rotate(-15deg);
+                    -moz-transform: rotate(-15deg);
+                    -o-transform: rotate(-15deg);
+                    -ms-transform: rotate(-15deg);
+                    transform: rotate(-15deg);
+                }
+                60% {
+                    left: 40%;
+                    bottom: 0;
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                65% {
+                    left: 55%;
+                    bottom: 20%;
+                }
+                70% {
+                    left: 70%;
+                    bottom: 0;
+                }
+                75% {
+                    left: 50%;
+                    bottom: 10%;
+                }
+                80% {
+                    left: 20%;
+                    bottom: 0;
+                }
+                85% {
+                    left: 10%;
+                    bottom: 20%;
+                }
+                90% {
+                    left: 0;
+                    bottom: 0;
+                }
+                95% {
+                    left: 0;
+                    bottom: 15%;
+                }
+                100% {
+                    left: 0;
+                    bottom: 0%;
+                }
+            }
+            .chibibounceKeyframes 0% {
+                left: 0;
+                bottom: 0;
+            }
+            .chibibounceKeyframes 10% {
+                left: 0;
+                -webkit-transform: rotate(15deg);
+                -moz-transform: rotate(15deg);
+                -o-transform: rotate(15deg);
+                -ms-transform: rotate(15deg);
+                transform: rotate(15deg);
+            }
+            .chibibounceKeyframes 15% {
+                left: 0;
+                bottom: 20%;
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            .chibibounceKeyframes 25% {
+                left: 0;
+                bottom: 0;
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            .chibibounceKeyframes 30% {
+                left: 20%;
+                bottom: 25%;
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            .chibibounceKeyframes 35% {
+                left: 40%;
+                bottom: 0;
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            .chibibounceKeyframes 45% {
+                left: 40%;
+                bottom: 0;
+                -webkit-transform: rotate(15deg);
+                -moz-transform: rotate(15deg);
+                -o-transform: rotate(15deg);
+                -ms-transform: rotate(15deg);
+                transform: rotate(15deg);
+            }
+            .chibibounceKeyframes 55% {
+                left: 40%;
+                bottom: 0;
+                -webkit-transform: rotate(-15deg);
+                -moz-transform: rotate(-15deg);
+                -o-transform: rotate(-15deg);
+                -ms-transform: rotate(-15deg);
+                transform: rotate(-15deg);
+            }
+            .chibibounceKeyframes 60% {
+                left: 40%;
+                bottom: 0;
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            .chibibounceKeyframes 65% {
+                left: 55%;
+                bottom: 20%;
+            }
+            .chibibounceKeyframes 70% {
+                left: 70%;
+                bottom: 0;
+            }
+            .chibibounceKeyframes 75% {
+                left: 50%;
+                bottom: 10%;
+            }
+            .chibibounceKeyframes 80% {
+                left: 20%;
+                bottom: 0;
+            }
+            .chibibounceKeyframes 85% {
+                left: 10%;
+                bottom: 20%;
+            }
+            .chibibounceKeyframes 90% {
+                left: 0;
+                bottom: 0;
+            }
+            .chibibounceKeyframes 95% {
+                left: 0;
+                bottom: 15%;
+            }
+            .chibibounceKeyframes 100% {
+                left: 0;
+                bottom: 0%;
+            }
+            @-webkit-keyframes spin {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    -moz-transform: rotate(360deg);
+                    -o-transform: rotate(360deg);
+                    -ms-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+            @keyframes spin {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    -moz-transform: rotate(360deg);
+                    -o-transform: rotate(360deg);
+                    -ms-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+        }
+        
+        @media only screen and (min-device-width: 320px) and (max-device-width: 900px) and (orientation: portrait) {
+            #title-container {
+                display: none;
+            }
+            #llss {
+                display: block;
+            }
+            .member {
+                width: 50%;
+            }
+            .name {
+                font-size: 10pt;
+            }
+            .number {
+                font-size: 9pt;
+            }
+            .unit {
+                font-size: 5pt;
+            }
+        }
+        
+        @media (min-width: 100px) and (max-width: 900px) {
+            #title-container {
+                display: none;
+            }
+            #llss {
+                display: block;
+            }
+            .name {
+                font-size: 10pt;
+            }
+            .number {
+                font-size: 9pt;
+            }
+            .unit {
+                font-size: 5pt;
+            }
+        }
+        
+        @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+            .member {
+                width: 33.33%;
+            }
+        }
+        
+        @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+            .member {
+                width: 33.33%;
+            }
+        }
+        
+        @media (min-width: 600px) and (max-width: 900px) {
+            .member {
+                width: 50%;
+            }
+        }
+        
+        @media (min-width: 100px) and (max-width: 600px) {
+            .member {
+                width: 100%;
+            }
+        }
+        
+        .balloon {
+            display: inline-block;
+            width: 55px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background: #799ed2;
+            border-radius: 80%;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            box-shadow: inset -10px -10px 0 rgba(0, 0, 0, 0.07);
+            margin: 20px 30px;
+            transition: transform 0.5s ease;
+            z-index: 10;
+            animation: balloons 4s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+        
+        .balloon:before {
+            content: "▲";
+            font-size: 10px;
+            color: #5979a6;
+            display: block;
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            bottom: -32px;
+            z-index: -100;
+        }
+        
+        .balloon:after {
+            display: inline-block;
+            top: 60px;
+            position: absolute;
+            left: 32.5px;
+            top: 55px;
+            height: 250px;
+            width: 1px;
+            content: "";
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        @keyframes balloons {
+            0%,
+            100% {
+                transform: translateY(0) rotate(-4deg);
+            }
+            50% {
+                transform: translateY(-25px) rotate(4deg);
+            }
+        }
+        
+        .balloon:nth-child(3) {
+            background: #ff944b;
+            animation-duration: 3.5s;
+            left: 22%;
+        }
+        
+        .balloon:nth-child(3):before {
+            color: #ff944b;
+        }
+        
+        .balloon:nth-child(4) {
+            background: #ff8888;
+            animation-duration: 3s;
+            left: 33%;
+            animation-direction: reverse;
+        }
+        
+        .balloon:nth-child(4):before {
+            color: #ff8888;
+        }
+        
+        .balloon:nth-child(5) {
+            background: #4ccbad;
+            animation-duration: 4.5s;
+            left: 44%;
+        }
+        
+        .balloon:nth-child(5):before {
+            color: #4ccbad;
+        }
+        
+        .balloon:nth-child(6) {
+            background: #e85c5c;
+            animation-duration: 5s;
+            left: 55%;
+            animation-direction: reverse;
+        }
+        
+        .balloon:nth-child(6):before {
+            color: #e85c5c;
+        }
+        
+        .balloon:nth-child(7) {
+            background: #4cb1dc;
+            animation-duration: 2s;
+            left: 22%;
+            top: 30%;
+        }
+        
+        .balloon:nth-child(7):before {
+            color: #4cb1dc;
+        }
+        
+        .balloon:nth-child(8) {
+            background: #adadad;
+            animation-duration: 3.5s;
+            left: 33%;
+            top: 30%;
+            animation-direction: reverse;
+        }
+        
+        .balloon:nth-child(8):before {
+            color: #adadad;
+        }
+        
+        .balloon:nth-child(9) {
+            background: #cfbc21;
+            animation-duration: 3s;
+            left: 44%;
+            top: 30%;
+        }
+        
+        .balloon:nth-child(9):before {
+            color: #cfbc21;
+        }
+        
+        .balloon:nth-child(10) {
+            background: #aa48db;
+            animation-duration: 4.5s;
+            left: 55%;
+            top: 30%;
+            animation-direction: reverse;
+        }
+        
+        .balloon:nth-child(10):before {
+            color: #aa48db;
+        }
+        
+        .balloon:nth-child(11) {
+            background: #e371ba;
+            animation-duration: 5s;
+            left: 66%;
+            top: 30%;
+        }
+        
+        .balloon:nth-child(11):before {
+            color: #e371ba;
+        }
+        
+        .balloon:nth-child(12) {
+            background: #799ed2;
+            animation-duration: 2s;
+            left: 77%;
+            top: 30%;
+            animation-direction: reverse;
+        }
+        
+        .balloon:nth-child(12):before {
+            color: #799ed2;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="title-container">
+            <div id="title">
+                <div class="logo"><img src="assets/general/llss_logo_white.png" /></div>
+                <div class="title-text"><i class="fa fa-birthday-cake" aria-hidden="true"></i>&nbsp;Seiyuu Birthday Countdowns</div>
+            </div>
+            <div class="watermark"><span class="twitter"><a href="https://twitter.com/ambi_dere">Built by&nbsp;<i class="fa fa-twitter" aria-hidden="true"></i>@ambi_dere</a></span></div>
+            <div class="title-background"></div>
+        </div>
+        <div id="members-container">
+            <div id="llss" class="member">
+                <div class="logo"><img src="assets/general/llss_logo_white.png" /></div>
+                <div class="title-text"><i class="fa fa-birthday-cake" aria-hidden="true"></i>&nbsp;Seiyuu Birthday Countdowns<span class="twitter"><a href="https://twitter.com/ambi_dere">Built by&nbsp;<i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;@ambi_dere</a></span></div>
+            </div>
+            <div id="anchan" class="member" data-countdown="02-07">
+                <div class="pics-container member-column">
+                    <div class="pic"></div>
+                    <div class="arc"></div>
+                    <div class="chibi"></div>
+                </div>
+                <div class="details member-column">
+                    <div class="name-container"><span class="name">Inami Anju | 伊波杏樹</span>
+                        <br><span class="birthday"><i class="fa fa-birthday-cake" aria-hidden="true"></i>&nbsp;January 01</span><span class="twitter"><a href="https://twitter.com/anju_inami"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;@anju_inami</a></span></div>
+                    <div class="birthday-container">
+                        <div class="week unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">weeks</div>
+                        </div>
+                        <div class="day unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">days</div>
+                        </div>
+                        <div class="hour unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">hours</div>
+                        </div>
+                        <div class="minute unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">minutes</div>
+                        </div>
+                        <div class="second unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">seconds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="rikyako" class="member" data-countdown="08-08">
+                <div class="pics-container member-column">
+                    <div class="pic"></div>
+                    <div class="arc"></div>
+                    <div class="chibi"></div>
+                </div>
+                <div class="details member-column">
+                    <div class="name-container"><span class="name">Aida Rikako | 逢田梨香子</span>
+                        <br><span class="birthday"><i class="fa fa-birthday-cake" aria-hidden="true"></i>&nbsp;January 01</span><span class="twitter"><a href="https://twitter.com/Rikako_Aida"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;@Rikako_Aida</a></span></div>
+                    <div class="birthday-container">
+                        <div class="week unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">weeks</div>
+                        </div>
+                        <div class="day unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">days</div>
+                        </div>
+                        <div class="hour unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">hours</div>
+                        </div>
+                        <div class="minute unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">minutes</div>
+                        </div>
+                        <div class="second unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">seconds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="suwawa" class="member" data-countdown="11-02">
+                <div class="pics-container member-column">
+                    <div class="pic"></div>
+                    <div class="arc"></div>
+                    <div class="chibi"></div>
+                </div>
+                <div class="details member-column">
+                    <div class="name-container"><span class="name">Suwa Nanaka | 諏訪ななか</span>
+                        <br><span class="birthday"><i class="fa fa-birthday-cake" aria-hidden="true"></i>&nbsp;January 01</span><span class="twitter"><a href="https://twitter.com/suwananaka"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;@suwananaka</a></span></div>
+                    <div class="birthday-container">
+                        <div class="week unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">weeks</div>
+                        </div>
+                        <div class="day unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">days</div>
+                        </div>
+                        <div class="hour unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">hours</div>
+                        </div>
+                        <div class="minute unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">minutes</div>
+                        </div>
+                        <div class="second unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">seconds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="arisha" class="member" data-countdown="02-05">
+                <div class="pics-container member-column">
+                    <div class="pic"></div>
+                    <div class="arc"></div>
+                    <div class="chibi"></div>
+                </div>
+                <div class="details member-column">
+                    <div class="name-container"><span class="name">Komiya Arisa | 小宮有紗</span>
+                        <br><span class="birthday"><i class="fa fa-birthday-cake" aria-hidden="true"></i>&nbsp;January 01</span><span class="twitter"><a href="https://twitter.com/box_komiyaarisa"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;@box_komiyaarisa</a></span></div>
+                    <div class="birthday-container">
+                        <div class="week unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">weeks</div>
+                        </div>
+                        <div class="day unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">days</div>
+                        </div>
+                        <div class="hour unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">hours</div>
+                        </div>
+                        <div class="minute unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">minutes</div>
+                        </div>
+                        <div class="second unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">seconds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="shukashuu" class="member" data-countdown="08-16">
+                <div class="pics-container member-column">
+                    <div class="pic"></div>
+                    <div class="arc"></div>
+                    <div class="chibi"></div>
+                </div>
+                <div class="details member-column">
+                    <div class="name-container"><span class="name">Saito Shuka | 斉藤朱夏</span>
+                        <br><span class="birthday"><i class="fa fa-birthday-cake" aria-hidden="true"></i>&nbsp;January 01</span><span class="twitter"><a href="https://twitter.com/Saito_Shuka"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;@Saito_Shuka</a></span></div>
+                    <div class="birthday-container">
+                        <div class="week unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">weeks</div>
+                        </div>
+                        <div class="day unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">days</div>
+                        </div>
+                        <div class="hour unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">hours</div>
+                        </div>
+                        <div class="minute unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">minutes</div>
+                        </div>
+                        <div class="second unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">seconds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="aikyan" class="member" data-countdown="10-23">
+                <div class="pics-container member-column">
+                    <div class="pic"></div>
+                    <div class="arc"></div>
+                    <div class="chibi"></div>
+                </div>
+                <div class="details member-column">
+                    <div class="name-container"><span class="name">Kobayashi Aika | 小林愛香</span>
+                        <br><span class="birthday"><i class="fa fa-birthday-cake" aria-hidden="true"></i>&nbsp;January 01</span><span class="twitter"><a href="https://twitter.com/Aikyan_"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;@Aikyan_</a></span></div>
+                    <div class="birthday-container">
+                        <div class="week unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">weeks</div>
+                        </div>
+                        <div class="day unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">days</div>
+                        </div>
+                        <div class="hour unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">hours</div>
+                        </div>
+                        <div class="minute unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">minutes</div>
+                        </div>
+                        <div class="second unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">seconds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="king" class="member" data-countdown="09-25">
+                <div class="pics-container member-column">
+                    <div class="pic"></div>
+                    <div class="arc"></div>
+                    <div class="chibi"></div>
+                </div>
+                <div class="details member-column">
+                    <div class="name-container"><span class="name">Takatsuki Kanako | 高槻かなこ</span>
+                        <br><span class="birthday"><i class="fa fa-birthday-cake" aria-hidden="true"></i>&nbsp;January 01</span><span class="twitter"><a href="https://twitter.com/Kanako_tktk"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;@Kanako_tktk</a></span></div>
+                    <div class="birthday-container">
+                        <div class="week unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">weeks</div>
+                        </div>
+                        <div class="day unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">days</div>
+                        </div>
+                        <div class="hour unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">hours</div>
+                        </div>
+                        <div class="minute unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">minutes</div>
+                        </div>
+                        <div class="second unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">seconds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="ainyan" class="member" data-countdown="07-23">
+                <div class="pics-container member-column">
+                    <div class="pic"></div>
+                    <div class="arc"></div>
+                    <div class="chibi"></div>
+                </div>
+                <div class="details member-column">
+                    <div class="name-container"><span class="name">Suzuki Aina | 鈴木愛奈</span>
+                        <br><span class="birthday"><i class="fa fa-birthday-cake" aria-hidden="true"></i>&nbsp;January 01</span><span class="twitter"><a href="https://twitter.com/aina_suzuki723"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;@aina_suzuki723</a></span></div>
+                    <div class="birthday-container">
+                        <div class="week unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">weeks</div>
+                        </div>
+                        <div class="day unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">days</div>
+                        </div>
+                        <div class="hour unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">hours</div>
+                        </div>
+                        <div class="minute unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">minutes</div>
+                        </div>
+                        <div class="second unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">seconds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="furirin" class="member" data-countdown="02-19">
+                <div class="pics-container member-column">
+                    <div class="pic"></div>
+                    <div class="arc"></div>
+                    <div class="chibi"></div>
+                </div>
+                <div class="details member-column">
+                    <div class="name-container"><span class="name">Furihata Ai | 降幡愛</span>
+                        <br><span class="birthday"><i class="fa fa-birthday-cake" aria-hidden="true"></i>&nbsp;January 01</span><span class="twitter"><a href="https://twitter.com/furihata_ai"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;@furihata_ai</a></span></div>
+                    <div class="birthday-container">
+                        <div class="week unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">weeks</div>
+                        </div>
+                        <div class="day unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">days</div>
+                        </div>
+                        <div class="hour unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">hours</div>
+                        </div>
+                        <div class="minute unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">minutes</div>
+                        </div>
+                        <div class="second unit-container">
+                            <div class="number">0</div>
+                            <div class="unit">seconds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/compressed.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('[data-countdown]').each(function() {
+                var currentYear = new Date().getFullYear();
+                var targetYear = currentYear;
+                var countdownTo = $(this).data('countdown');
+                var isCurrent = checkCurrentDate(countdownTo, targetYear);
+                if (checkCurrentDate(countdownTo, targetYear)) {
+                    targetYear++;
+                }
+                var finalDate = moment.tz(targetYear + '-' + countdownTo + ' 00:00', 'Japan');
+                $('#' + $(this).attr('id') + ' .birthday').html('<i class="fa fa-birthday-cake" aria-hidden="true"></i>&nbsp;' + finalDate.format('MMMM Do'));
+                var $birthdayElem = $(this).find('.birthday-container');
+                $birthdayElem.countdown(finalDate.toDate(), changeCountdown);
+                if (checkIfCurrentDateIsABirthday(countdownTo, currentYear)) {
+                    $(this).find('.details').hide(100);
+                    $(this).append('<div class="balloon">お</div><div class="balloon">誕</div><div class="balloon">生</div><div class="balloon">日</div><div class="balloon">お</div><div class="balloon">め</div><div class="balloon">で</div><div class="balloon">と</div><div class="balloon">う</div><div class="balloon">!</div>');
+                    $(this).append('<div class="bday-greeting"><a href="https://twitter.com/hashtag/諏訪ななか2016?src=hash">#諏訪ななか生誕祭2016</a></div>');
+                }
+            });
+        });
+
+        function checkIfCurrentDateIsABirthday(date, currentYear) {
+            var now = new Date();
+            var countdownToDate = moment.tz(currentYear + '-' + date, 'Japan');
+            return countdownToDate.isSame(now, 'day');
+        }
+
+        function checkCurrentDate(date, currentYear) {
+            var now = moment.tz(new Date(), 'Japan');
+            var countdownToDate = moment.tz(currentYear + '-' + date, 'Japan');
+            return countdownToDate.isBefore(now, 'day');
+        }
+
+        function changeCountdown(event) {
+            var $this = $(this);
+            modifyUnits($this, 'week', '%!w', event, event.offset.weeks);
+            modifyUnits($this, 'day', '%!d', event, event.offset.days);
+            modifyUnits($this, 'hour', '%!H', event, event.offset.hours);
+            modifyUnits($this, 'minute', '%!m', event, event.offset.minutes);
+            modifyUnits($this, 'second', '%!S', event, event.offset.seconds);
+        }
+
+        function modifyUnits(elem, unit, unitshort, event, num) {
+            elem.find('.' + unit + ' .number').html(num);
+            elem.find('.' + unit + ' .unit').html(event.strftime(unit + unitshort));
+        }
+    </script>
+</body>
+
+</html>
